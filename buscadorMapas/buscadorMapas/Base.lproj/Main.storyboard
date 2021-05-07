@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZL-Jo-blS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Buscador-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="buscadorMapas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VDH-7a-A4f">
+                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9Iv-7T-C9B"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HDn-nX-khT">
+                                <rect key="frame" x="0.0" y="176" width="414" height="720"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="HDn-nX-khT" secondAttribute="bottom" constant="-34" id="FxW-5n-bYc"/>
+                            <constraint firstItem="VDH-7a-A4f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yer-DB-qQ0"/>
+                            <constraint firstItem="HDn-nX-khT" firstAttribute="top" secondItem="VDH-7a-A4f" secondAttribute="bottom" id="Z3a-iT-Rap"/>
+                            <constraint firstItem="VDH-7a-A4f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZXe-cS-Uga"/>
+                            <constraint firstItem="VDH-7a-A4f" firstAttribute="leading" secondItem="HDn-nX-khT" secondAttribute="leading" id="da0-oH-msw"/>
+                            <constraint firstItem="VDH-7a-A4f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-8" id="nmc-WP-Vo1"/>
+                            <constraint firstItem="VDH-7a-A4f" firstAttribute="trailing" secondItem="HDn-nX-khT" secondAttribute="trailing" id="xnU-Cy-dfD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Buscador" id="8uL-ok-OQd">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="location.viewfinder" catalog="system" id="Owe-ya-VzD">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <action selector="distanciaBttn:" destination="BYZ-38-t0r" id="2T7-W0-zzn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="location.circle.fill" catalog="system" id="P5A-2V-nhe">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <action selector="ubicacionBttn:" destination="BYZ-38-t0r" id="l46-xs-7fg"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buscadorSB" destination="VDH-7a-A4f" id="24G-M4-AJj"/>
+                        <outlet property="mapaMK" destination="HDn-nX-khT" id="Ffb-0I-hpL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="76.339285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zDs-Wv-D8l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sZL-Jo-blS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Yb4-aS-Sep">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kyj-5r-9Zk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJg-LM-PsY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="76.339285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="location.viewfinder" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
